@@ -1,0 +1,13 @@
+.home-structure {
+    display: flex;
+    flex-direction: column;
+}
+
+.home-image_frame {
+    overflow: hidden;
+    height: 70%;
+}
+
+.home-image {
+    width: 100%;
+}
