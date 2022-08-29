@@ -4,10 +4,40 @@
 }
 
 .home-image_frame {
-    overflow: hidden;
-    height: 70%;
+    height: 300px;
+    position: relative;
+    background-position: 0 -50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: end;
 }
 
 .home-image {
     width: 100%;
+}
+
+.home-cards_area {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10%;
+}
+
+@media screen and (max-width: 900px) {
+    .home-cards_area {
+        flex-direction: column;
+        justify-content: space-around;
+        margin: 0;
+        width: 100%;
+        align-items: center;
+    }
+
+    .home-image_frame {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }

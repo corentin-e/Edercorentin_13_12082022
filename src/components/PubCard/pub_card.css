@@ -1,0 +1,15 @@
+.pubcard {
+    background-color: white;
+    padding: 20px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.pubcard-text_bold{
+    font-weight: bold;
+    font-size: 15px;
+}

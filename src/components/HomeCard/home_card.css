@@ -1,0 +1,30 @@
+.homecard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 10px;
+    width: 30%;
+}
+
+.homecard-icon {
+    border-radius: 100%;
+    border: 5px solid #28AF66;
+    width: 100px;
+}
+
+.homecard-title {
+    font-weight: bold;
+}
+
+.homecard-text {
+    font-size: 11px;
+}
+
+@media screen and (max-width: 900px) {
+    .homecard {
+        width: 80%;
+    }
+}

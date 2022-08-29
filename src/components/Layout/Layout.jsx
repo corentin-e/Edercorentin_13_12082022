@@ -10,7 +10,7 @@ const Layout = ({children}) => {
                 <img src={logo} alt="logo argentBank" className='layout-logo'/>
                 <Link to="login" className='layout-sign'>
                     <img src={userIcon} alt="user icon" className='layout-user_icon'/>
-                    <label>Sign In</label>
+                    <label className='layout-text_sign'>Sign In</label>
                 </Link>
             </div>
             {children}
