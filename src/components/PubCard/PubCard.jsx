@@ -1,6 +1,6 @@
 import './pub_card.css';
 
-const PubCard = ({}) => {
+const PubCard = () => {
     return (
         <div className="pubcard">
             <label className='pubcard-text_bold'>

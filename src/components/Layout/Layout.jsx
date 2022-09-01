@@ -7,7 +7,9 @@ const Layout = ({children}) => {
     return (
         <div className='layout-background'>
             <div className='layout-head'>
-                <img src={logo} alt="logo argentBank" className='layout-logo'/>
+                <Link to="/">
+                    <img src={logo} alt="logo argentBank" className='layout-logo'/>
+                </Link>
                 <Link to="login" className='layout-sign'>
                     <img src={userIcon} alt="user icon" className='layout-user_icon'/>
                     <label className='layout-text_sign'>Sign In</label>
