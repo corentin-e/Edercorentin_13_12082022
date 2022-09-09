@@ -2,8 +2,10 @@ import './layout.css';
 import { Link } from "react-router-dom";
 import logo from '../../assets/argentBankLogo.png';
 import userIcon from '../../assets/icons/icon-user.png'
+import useAuth from "../../services/useAuth";
 
 const Layout = ({children}) => {
+    const { isLogged } = useAuth()
     return (
         <div className='layout-background'>
             <div className='layout-head'>
@@ -12,7 +14,11 @@ const Layout = ({children}) => {
                 </Link>
                 <Link to="login" className='layout-sign'>
                     <img src={userIcon} alt="user icon" className='layout-user_icon'/>
-                    <label className='layout-text_sign'>Sign In</label>
+                    {isLogged
+                        ? <label className='layout-text_sign'>Sign Out</label>
+                        : <label className='layout-text_sign'>Sign In</label>
+
+                    }
                 </Link>
             </div>
             {children}

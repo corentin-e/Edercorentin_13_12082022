@@ -1,10 +1,15 @@
 import '../Profile/profile.css'
-import { Layout } from '../../components/index.js'
+import useUser from "../../services/useUser";
+import {useEffect} from "react";
 
 const Profile = () => {
-    <Layout>
-        
-    </Layout>
+    const { getUser } = useUser()
+
+    useEffect(() => {
+        getUser()
+    }, [])
+
+    return(<div>Profile</div>)
 }
 
 export default Profile;
