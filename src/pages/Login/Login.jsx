@@ -1,8 +1,11 @@
 import '../Login/login.css'
 import { Layout } from '../../components/index.js'
 import userIconLarge from '../../assets/icons/icon-user-large.png'
+import useToken from "../../services/useToken";
 
 const Login = () => {
+    const Logins = useToken()
+    console.log(Logins)
     return (
         <Layout>
             <div className="login-card">
