@@ -1,0 +1,43 @@
+.transactioncard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 50%;
+}
+
+.transactioncard-infos {
+    display: flex;
+    flex-direction: column;
+}
+.transactioncard-infos_bank {
+    font-size: 12px;
+}
+.transactioncard-infos_investment {
+    font-size: 20px;
+    font-weight: bold;
+}
+.transactioncard-infos_status {
+    font-size: 10px;
+}
+.transactioncard-button {
+    border-color: #6458F5;
+    background-color: white;
+    color: #6458F5;
+    padding: 10px;
+    border-radius: 5px;
+}
+.transactioncard-button:hover {
+    background-color: #6458F5;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}

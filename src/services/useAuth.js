@@ -11,8 +11,6 @@ export default function useAuth() {
     //try / catch en cas d'erreur
     const login = async (body) => {
         const response = await axios.post(`http://localhost:3001/api/v1/user/login`, body)
-        console.log(response)
-        console.log(response.data)
         const token = response.data.body.token
         dispatch(logIn({
             token
