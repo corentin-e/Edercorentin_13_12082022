@@ -14,22 +14,20 @@ export default function useAuth() {
         const token = response.data.body.token
         dispatch(logIn({
             token
+
         }))
-
         navigate('/profile')
-
     }
 
     const logout = () => {
         console.log('LOGOUT')
     }
 
-
     const isLogged = !!useSelector(selectToken)
 
     return {
         login,
         logout,
-        isLogged
+        isLogged,
     }
 }

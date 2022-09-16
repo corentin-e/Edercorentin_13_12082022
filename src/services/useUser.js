@@ -15,7 +15,6 @@ export default function useUser() {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
-            body
         })
         const firstName = response.data.body.firstName
         const lastName = response.data.body.lastName
@@ -23,7 +22,7 @@ export default function useUser() {
             firstName,
             lastName
         }))
-        console.log('Test', firstName)
+        console.log(firstName)
     }
 
 

@@ -11,9 +11,16 @@ const Profile = () => {
         getUser()
         putUser()
     }, [])
-
+    console.log(getUser())
     return(
-    <div className="profile-page">
+    <div className='profile-page'>
+        <div className='profile-page-header'>
+            <span className='profile-page-title'>Welcome back</span>
+            <div className='profile-page-name'>
+                <span>{getUser().firstName}</span>
+                <span></span>
+            </div>
+        </div>
         <TransactionCard/>
     </div>
     );
