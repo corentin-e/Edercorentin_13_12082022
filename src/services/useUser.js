@@ -9,32 +9,35 @@ export default function useUser() {
     const token = useSelector(selectToken)
 
     //try / catch en cas d'erreur
-    const getUser = async (body) => {
-        const response = await axios.get(`http://localhost:3001/api/v1/user/profile`,
+    const getUser = async () => {
+        console.log('tokentest', token)
+        const response = await axios.post(`http://localhost:3001/api/v1/user/profile`,
         {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
         })
-        const firstName = response.data.body.firstName
-        const lastName = response.data.body.lastName
+        const firstName = response.body.firstName
+        const lastName = response.body.lastName
+        console.log({response})
         dispatch(getUser({
             firstName,
             lastName
         }))
-        console.log(firstName)
+
     }
 
 
 
-    const putUser = async (body) => {
-        const response = await axios.put(`http://localhost:3001/api/v1/user/profile`, {
+    const putUser = async () => {
+        const response = await axios.put(`http://localhost:3001/api/v1/user/profile`, 
+        {
             headers: {
                 Authorization: `Bearer ${token}`,
-            }, body
+            },
         })
-        const firstName = response.data.body.firstName
-        const lastName = response.data.body.lastName
+        const firstName = response.body.firstName
+        const lastName = response.body.lastName
         dispatch(putUser({
             firstName,
             lastName
