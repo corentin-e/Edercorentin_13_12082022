@@ -7,8 +7,6 @@ import { updateProfile } from "../redux/userSlice";
 export default function useUser() {
     const dispatch = useDispatch()
     const token = useSelector(selectToken)
-    console.log('token0',useSelector(selectToken))
-    console.log('token',token)
 
     //try / catch en cas d'erreur
     const getUser = async () => {
@@ -18,9 +16,9 @@ export default function useUser() {
                 Authorization: `Bearer ${token}`,
             },
         })
+        console.log('response', response)
 
         const firstName = response.data.body.firstName
-        console.log('first name', firstName)
         const lastName = response.data.body.lastName
 
         dispatch(updateProfile({

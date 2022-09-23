@@ -18,7 +18,7 @@ const UserNameForm = ({closeEditUserName}) => {
         lastName: "",
     });
 
-    const updateUserName =   async () => {
+    const updateUserName =   () => {
         const inputsForm = {
             firstName: updateName.firstName,
             lastName: updateName.lastName

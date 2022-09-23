@@ -10,7 +10,7 @@ const Profile = () => {
 
     useEffect(() => {
        getUser()
-    });
+    }, []);
 
     const firstName = useSelector(selectFirstName)
     const lastName = useSelector(selectLastName)
