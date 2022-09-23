@@ -34,7 +34,7 @@
 }
 
 .profile-page-button_form {
-    border-color: #6458F5;
+    border: 1px solid #6458F5;
     background-color: white;
     color: #6458F5;
     margin-top: 15px;

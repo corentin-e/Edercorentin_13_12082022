@@ -7,14 +7,14 @@ import {useSelector} from "react-redux";
 
 const Profile = () => {
     const { getUser } = useUser()
-    const { putUser } = useUser()
 
     useEffect(() => {
        getUser()
-    }, [])
+    });
 
     const firstName = useSelector(selectFirstName)
     const lastName = useSelector(selectLastName)
+
     console.log(firstName, lastName)
 
     const [displayUserNameForm, setDisplayUserNameForm] = useState(false)
@@ -40,8 +40,7 @@ const Profile = () => {
                     </div>
                     <button className='profile-page-button_form' onClick={openEditUserName} id="editUserName">Edit</button>
                 </div>
-            ) : '' }
-            {displayUserNameForm === true ? <UserNameForm closeEditUserName={closeEditUserName}/> : ''}
+            ) : <UserNameForm closeEditUserName={closeEditUserName}/> }
         </div>
         <TransactionCard/>
     </div>
