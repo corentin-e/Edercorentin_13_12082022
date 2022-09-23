@@ -3,10 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     firstName: null,
     lastName: null,
-
 };
 
-const authSlice = createSlice({
+const userSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
@@ -18,7 +17,8 @@ const authSlice = createSlice({
 });
 
 
-export const { updateProfile } = authSlice.actions;
-export default authSlice.reducer;
-export const selectFirstName = (state) => state.auth.firstName
-export const selectLastName = (state) => state.auth.lastName
+const { reducer } = userSlice;
+export const { updateProfile } = userSlice.actions;
+export default reducer;
+export const selectFirstName = (state) => state.user.firstName
+export const selectLastName = (state) => state.user.lastName

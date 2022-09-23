@@ -1,6 +1,7 @@
 import axios from 'axios'
 import {useDispatch, useSelector } from "react-redux";
-import {selectToken} from "../redux/authSlice";
+import {selectToken, updateUser} from "../redux/authSlice";
+import { updateProfile } from "../redux/userSlice";
 /* import { useNavigate } from "react-router-dom"; */
 
 
@@ -10,17 +11,17 @@ export default function useUser() {
 
     //try / catch en cas d'erreur
     const getUser = async () => {
-        console.log('tokentest', token)
         const response = await axios.get(`http://localhost:3001/api/v1/user/profile`,
         {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
         })
-        const firstName = response.data.firstName
-        const lastName = response.data.lastName
-        console.log({response})
-        dispatch(getUser({
+
+        const firstName = response.data.body.firstName
+        const lastName = response.data.body.lastName
+
+        dispatch(updateProfile({
             firstName,
             lastName
         }))

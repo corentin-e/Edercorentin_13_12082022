@@ -15,7 +15,6 @@ export default function useAuth() {
         dispatch(logIn({
             token
         }))
-        console.log(token)
         navigate('/profile')
     }
 
