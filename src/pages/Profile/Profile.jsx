@@ -1,7 +1,7 @@
 import '../Profile/profile.css'
 import useUser from "../../services/useUser";
-import {useEffect} from "react";
-import { TransactionCard } from '../../components';
+import {useEffect, useState} from "react";
+import { TransactionCard, UserNameForm } from '../../components';
 import {selectFirstName, selectLastName} from "../../redux/userSlice";
 import {useSelector} from "react-redux";
 
@@ -17,22 +17,31 @@ const Profile = () => {
     const lastName = useSelector(selectLastName)
     console.log(firstName, lastName)
 
+    const [displayUserNameForm, setDisplayUserNameForm] = useState(false)
 
-    const editUserName = () => {
-        document.getElementById("editUserName").className="profile-page-button_form-hidden";
-        document.getElementById("nameUserProfil").className="profile-page-name-hidden";
+    const openEditUserName = () => {
+        setDisplayUserNameForm(true)
     }
+
+    const closeEditUserName = () => {
+        setDisplayUserNameForm(false)
+    }
+
 
     return(
     <div className='profile-page'>
         <div className='profile-page-header'>
             <span className='profile-page-title'>Welcome back</span>
-            <div className='profile-page-name-hiden' id="nameUserProfil">
-                <span>{firstName}</span>
-                &nbsp;
-                <span>{lastName}</span>
-            </div>
-            <button className="profile-page-button_form" onClick={editUserName} id="editUserName">Edit</button>
+            {displayUserNameForm === false ? (
+                <div className='profile-page-user-name'>
+                    <div className='profile-page-name'>
+                        <span>{firstName}</span>
+                        <span>{lastName}</span>
+                    </div>
+                    <button className='profile-page-button_form' onClick={openEditUserName} id="editUserName">Edit</button>
+                </div>
+            ) : '' }
+            {displayUserNameForm === true ? <UserNameForm closeEditUserName={closeEditUserName}/> : ''}
         </div>
         <TransactionCard/>
     </div>

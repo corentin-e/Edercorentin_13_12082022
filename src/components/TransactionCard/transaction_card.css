@@ -27,7 +27,7 @@
     font-size: 10px;
 }
 .transactioncard-button {
-    border-color: #6458F5;
+    border: 1px solid #6458F5;
     background-color: white;
     color: #6458F5;
     padding: 10px;
