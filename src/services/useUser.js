@@ -11,14 +11,14 @@ export default function useUser() {
     //try / catch en cas d'erreur
     const getUser = async () => {
         console.log('tokentest', token)
-        const response = await axios.post(`http://localhost:3001/api/v1/user/profile`,
+        const response = await axios.get(`http://localhost:3001/api/v1/user/profile`,
         {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
         })
-        const firstName = response.body.firstName
-        const lastName = response.body.lastName
+        const firstName = response.data.firstName
+        const lastName = response.data.lastName
         console.log({response})
         dispatch(getUser({
             firstName,
@@ -36,8 +36,8 @@ export default function useUser() {
                 Authorization: `Bearer ${token}`,
             },
         })
-        const firstName = response.body.firstName
-        const lastName = response.body.lastName
+        const firstName = response.data.firstName
+        const lastName = response.data.lastName
         dispatch(putUser({
             firstName,
             lastName

@@ -22,3 +22,29 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
+.profile-page-name-hidden {
+    display: none;
+}
+
+.profile-page-button_form {
+    border-color: #6458F5;
+    background-color: white;
+    color: #6458F5;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.profile-page-button_form:hover {
+    background-color: #6458F5;
+    border-color: #6458F5;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile-page-button_form-hidden {
+    display:none;
+}
