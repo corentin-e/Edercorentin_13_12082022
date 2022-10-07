@@ -2,54 +2,36 @@ import { useSelector } from 'react-redux';
 import {useState} from "react";
 import { selectFirstName, selectLastName } from '../../redux/userSlice';
 import useUser from '../../services/useUser';
+import { useForm } from "react-hook-form";
+
 import './user_name_form.css'
 
 
 const UserNameForm = ({closeEditUserName}) => {
-
+    const { putUser } = useUser()
     const firstName = useSelector(selectFirstName);
     const lastName = useSelector(selectLastName);
-
-    const  { putUser } = useUser()
-    
-
-    const [updateName, setUpdateName] = useState({
-        firstName: "",
-        lastName: "",
+    const { register, handleSubmit, watch, formState: { errors } } = useForm({
+        defaultValues: {
+            firstName,
+            lastName,
+        },
     });
 
-    const updateUserName =   () => {
-        const inputsForm = {
-            firstName: updateName.firstName,
-            lastName: updateName.lastName
-        };
-        console.log('===update Name User===', inputsForm)
-        try {
-            putUser();
-        } catch (error) {
-            console.log("===Error===")
-        }
-        console.log("===Sucess===")
+    const onSubmit = (data) => {
+        putUser(data)
+        closeEditUserName()
     }
 
-    const handleUpdateInputsName = (e) => {
-        e.preventDefault();
-        const inputsName = e.target.id;
-        setUpdateName({
-          ...updateName,
-          [inputsName]: e.target.value,
-        });
-    };
-
     return (
-        <form className='username-form'>
+        <form className='username-form' onSubmit={handleSubmit(onSubmit)}>
             <div className='username-inputs'>
-                <input className='username-input' type="text" id="firstName" name="first name" placeholder={firstName} onChange={handleUpdateInputsName}></input>
-                <input className='username-input' type="text" id="lastName" name="last name" placeholder={lastName} onChange={handleUpdateInputsName}></input>
+                <input className='username-input' {...register("firstName", { required: true })}  />
+                <input className='username-input' {...register("lastName", { required: true })} />
             </div>
             <div className="username-buttons">
-                <button className="username-button" onClick={updateUserName()}>Save</button>
-                <button className="username-button" onClick={closeEditUserName}>Cancel</button>
+                <button className="username-button">Save</button>
+                <button className="username-button" onClick={closeEditUserName} type="button">Cancel</button>
             </div>
 
         </form>

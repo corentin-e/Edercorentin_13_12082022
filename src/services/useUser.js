@@ -11,11 +11,11 @@ export default function useUser() {
     //try / catch en cas d'erreur
     const getUser = async () => {
         const response = await axios.get(`http://localhost:3001/api/v1/user/profile`,
-        {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        })
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
         console.log('response', response)
 
         const firstName = response.data.body.firstName
@@ -28,16 +28,18 @@ export default function useUser() {
 
     }
 
-    const putUser = async () => {
+    const putUser = async (data) => {
         const response = await axios.put(`http://localhost:3001/api/v1/user/profile`,
-        {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        })
-        const firstName = response.data.firstName
-        const lastName = response.data.lastName
-        dispatch(putUser({
+            data,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
+        const firstName = response.data.body.firstName
+        const lastName = response.data.body.lastName
+
+        dispatch(updateProfile({
             firstName,
             lastName
         }))

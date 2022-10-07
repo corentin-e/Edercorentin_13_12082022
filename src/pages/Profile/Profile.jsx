@@ -4,9 +4,12 @@ import {useEffect, useState} from "react";
 import { TransactionCard, UserNameForm } from '../../components';
 import {selectFirstName, selectLastName} from "../../redux/userSlice";
 import {useSelector} from "react-redux";
+import {selectToken} from "../../redux/authSlice";
+import {Navigate} from "react-router-dom";
 
 const Profile = () => {
     const { getUser } = useUser()
+    const token = useSelector(selectToken)
 
     useEffect(() => {
        getUser()
@@ -27,6 +30,12 @@ const Profile = () => {
         setDisplayUserNameForm(false)
     }
 
+    console.log('====')
+    console.log(token)
+
+    if (!token) {
+       return <Navigate to="/" replace={true} />
+    }
 
     return(
     <div className='profile-page'>
