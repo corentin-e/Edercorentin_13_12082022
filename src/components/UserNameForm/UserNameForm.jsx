@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux';
-import {useState} from "react";
 import { selectFirstName, selectLastName } from '../../redux/userSlice';
 import useUser from '../../services/useUser';
 import { useForm } from "react-hook-form";
@@ -11,7 +10,7 @@ const UserNameForm = ({closeEditUserName}) => {
     const { putUser } = useUser()
     const firstName = useSelector(selectFirstName);
     const lastName = useSelector(selectLastName);
-    const { register, handleSubmit, watch, formState: { errors } } = useForm({
+    const { register, handleSubmit } = useForm({
         defaultValues: {
             firstName,
             lastName,

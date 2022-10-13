@@ -1,14 +1,17 @@
 import './transaction_card.css';
+import { Link } from 'react-router-dom';
 
-const TransactionCard = () => {
+const TransactionCard = ({transactionCategory, amountTransactionCategory, balanceStatus}) => {
     return (
         <div className="transactioncard">
             <div className="transactioncard-infos">
-                <span className="transactioncard-infos_bank">Argent Bank Checking (x8349)</span>
-                <span className="transactioncard-infos_investment">$2,082.79</span>
-                <span className="transactioncard-infos_status">Available Balance</span>
+                <span className="transactioncard-infos_bank">{transactionCategory}</span>
+                <span className="transactioncard-infos_investment">${amountTransactionCategory}</span>
+                <span className="transactioncard-infos_status">{balanceStatus}</span>
             </div>
-            <button className="transactioncard-button">View transaction</button>
+            <Link to="/transaction">
+                <button className="transactioncard-button">View transaction</button>
+            </Link>
         </div>
     );
 }

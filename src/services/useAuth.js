@@ -23,7 +23,7 @@ export default function useAuth() {
         console.log('LOGOUT')
     }
 
-    const isLogged = !!useSelector(selectToken)
+    const isLogged = useSelector(selectToken) //"userSelector" replace "!!useSelector"
 
     return {
         login,

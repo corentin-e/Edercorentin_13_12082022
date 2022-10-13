@@ -1,0 +1,156 @@
+swagger: '2.0'
+info:
+  description: >-
+    Contains all available API endpoints for transactions of step 2 of Bank
+    Argent API project
+  version: 2.0.0
+  title: Bank Argent API documentation 2.0
+  termsOfService: http://swagger.io/terms/
+host: localhost:3001/api
+basePath: /v2
+schemes:
+  - https
+  - http
+paths:
+  /transactions/{userId}:
+    get:
+      tags:
+        - transaction
+      summary: Get all transactions of user
+      description: ''
+      operationId: getTransactionsUserId
+      produces:
+        - application/json
+      parameters:
+        - in: header
+          name: Authorization
+          type: integer
+          description: Attach Bearer JWT token
+          required: true
+        - in: path
+          name: userId
+          description: Id of user
+          type: integer
+          required: true
+      responses:
+        '200':
+          description: User transactions are all find
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Transaction'
+        '400':
+          description: Invalid user transaction
+      security:
+        - transaction_auth:
+            - write:transactions
+            - read:transactions
+    put:
+      tags:
+        - transaction
+      summary: Update an existing transaction
+      description: ''
+      operationId: updateTransactionUserId
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: header
+          name: Authorization
+          type: integer
+          description: Attach Bearer JWT token
+          required: true
+        - in: body
+          name: body
+          description: Transaction object that needs to be added to the store
+          required: true
+          schema:
+            $ref: '#/definitions/Transaction'
+        - in: path
+          name: userId
+          description: Id of user
+          type: integer
+          required: true
+      responses:
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Transaction not found
+        '405':
+          description: Validation exception
+      security:
+        - transaction_auth:
+            - write:transactions
+            - read:transactions
+securityDefinitions:
+  transaction_auth:
+    type: oauth2
+    authorizationUrl: http://transactionstore.swagger.io/oauth/dialog
+    flow: implicit
+    scopes:
+      write:transactions: modify pets in your account
+      read:transactions: read your pets
+definitions:
+  Transaction:
+    type: object
+    required:
+      - date
+      - description
+      - amount
+      - balance
+    properties:
+      id:
+        type: integer
+        format: int64
+      date:
+        type: number
+        example: June 20th, 2020
+      description:
+        type: string
+        example: Golden Sun Bakery
+      amount:
+        type: number
+        example: $5.00
+      balance:
+        type: number
+        example: null
+      transactionType:
+        type: string
+        items:
+          $ref: '#/definitions/TransactionType'
+      category:
+        type: string
+        items:
+          $ref: '#/definitions/Category'
+  Category:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+  TransactionType:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+  ApiResponse:
+    type: object
+    properties:
+      status:
+        type: integer
+      message:
+        type: string
+      body:
+        type: object
+        properties:
+          id:
+            type: integer
+            format: int32
+          email:
+            type: string
