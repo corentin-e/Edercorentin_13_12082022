@@ -1,7 +1,7 @@
 import '../Profile/profile.css'
 import useUser from "../../services/useUser";
 import {useEffect, useState} from "react";
-import { TransactionCard, UserNameForm } from '../../components';
+import { InvestmentCard, UserNameForm } from '../../components';
 import {selectFirstName, selectLastName} from "../../redux/userSlice";
 import {useSelector} from "react-redux";
 import {selectToken} from "../../redux/authSlice";
@@ -51,9 +51,9 @@ const Profile = () => {
                 </div>
             ) : <UserNameForm closeEditUserName={closeEditUserName}/> }
         </div>
-        <TransactionCard transactionCategory="Argent Bank Checking (x8349)" amountTransactionCategory="2,082.79" balanceStatus="Available Balance"/>
-        <TransactionCard transactionCategory="Argent Bank Savings (x67124)" amountTransactionCategory="10,928.42" balanceStatus="Available Balance"/>
-        <TransactionCard transactionCategory="Argent Bank Credit Card (x5201)" amountTransactionCategory="184.30" balanceStatus="Current Balance"/>
+        <InvestmentCard transactionCategory="Argent Bank Checking (x8349)" amountTransactionCategory="2,082.79" balanceStatus="Available Balance"/>
+        <InvestmentCard transactionCategory="Argent Bank Savings (x67124)" amountTransactionCategory="10,928.42" balanceStatus="Available Balance"/>
+        <InvestmentCard transactionCategory="Argent Bank Credit Card (x5201)" amountTransactionCategory="184.30" balanceStatus="Current Balance"/>
     </div>
     );
 }

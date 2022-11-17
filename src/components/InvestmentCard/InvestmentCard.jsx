@@ -1,4 +1,4 @@
-import './transaction_card.css';
+import './investment_card.css';
 import { Link } from 'react-router-dom';
 
 const TransactionCard = ({transactionCategory, amountTransactionCategory, balanceStatus}) => {
