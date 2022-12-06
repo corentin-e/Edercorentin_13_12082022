@@ -23,7 +23,6 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
-    margin-top: 250px;
 }
 
 @media screen and (max-width: 900px) {
