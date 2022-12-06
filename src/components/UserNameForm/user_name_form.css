@@ -43,3 +43,22 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 900px) {
+    .username-inputs {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .username-input {
+        width: 95%;
+    }
+
+    .username-buttons {
+        width: 100%;
+    }
+
+    .username-button {
+        width: 60px;
+    }
+}

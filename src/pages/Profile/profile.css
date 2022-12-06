@@ -62,3 +62,9 @@
 .profile-page-form-hidden {
     display: none;
 }
+
+@media screen and (max-width: 900px) {
+    .profile-page {
+        margin-bottom: 20px;
+    }
+}

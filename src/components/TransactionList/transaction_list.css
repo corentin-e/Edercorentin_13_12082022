@@ -13,10 +13,6 @@ table {
     border-collapse: collapse;
 }
 
-.transactionlist-array_head {
-    padding-bottom: 10px;
-}
-
 span {
     text-transform: uppercase;
     font-size: 12px;
