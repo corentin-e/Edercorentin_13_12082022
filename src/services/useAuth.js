@@ -20,7 +20,7 @@ export default function useAuth() {
 
 
     const logout = () => {
-        console.log('LOGOUT')
+        alert('Vous êtes maintenant déconnecté')
     }
 
     const isLogged = useSelector(selectToken) //"userSelector" replace "!!useSelector"
